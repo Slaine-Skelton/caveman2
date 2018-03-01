@@ -14,16 +14,30 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 mousePosition;
 
+	//animation
+	private Animator myAnimator;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         lastCheckpoint = transform.position;
+
+		myAnimator = GetComponent<Animator>();
     }
 
     void Update()
     {
         inputAmount.x = Input.GetAxis("Horizontal");
         inputAmount.y = Input.GetAxis("Vertical");
+
+		if(inputAmount.x != 0 || inputAmount.y != 0)
+		{
+			myAnimator.SetFloat("isWalking", 1f);
+		}
+		else
+		{
+			myAnimator.SetFloat("isWalking", 0);
+		}
 
         direction = inputAmount.x;
 
