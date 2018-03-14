@@ -9,47 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1502938923176134}
+  m_RootGameObject: {fileID: 1121517866311746}
   m_IsPrefabParent: 1
---- !u!1 &1502938923176134
+--- !u!1 &1121517866311746
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4722497550680378}
-  - component: {fileID: 212207086861294880}
-  - component: {fileID: 58181658337056010}
-  - component: {fileID: 50853072955319200}
-  - component: {fileID: 114384753702192694}
+  - component: {fileID: 4910480348263512}
+  - component: {fileID: 212437616678306808}
+  - component: {fileID: 58166034986656414}
+  - component: {fileID: 114652764595538402}
+  - component: {fileID: 50059246390669392}
+  - component: {fileID: 114435356464663818}
   m_Layer: 0
-  m_Name: businessman
+  m_Name: businessman (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4722497550680378
+--- !u!4 &4910480348263512
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502938923176134}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 3.22, z: 0}
-  m_LocalScale: {x: 0.08, y: 0.08, z: 1}
+  m_GameObject: {fileID: 1121517866311746}
+  m_LocalRotation: {x: -0, y: -0, z: -0.96298707, w: 0.26954758}
+  m_LocalPosition: {x: 2.6120663, y: -16.450695, z: 0}
+  m_LocalScale: {x: 0.08000001, y: 0.08000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50853072955319200
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.337}
+--- !u!50 &50059246390669392
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502938923176134}
+  m_GameObject: {fileID: 1121517866311746}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -63,27 +64,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58181658337056010
+--- !u!58 &58166034986656414
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502938923176134}
+  m_GameObject: {fileID: 1121517866311746}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3a6c71efcd057284da86fc0b5031d256, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.55250525, y: 1.3121963}
   serializedVersion: 2
   m_Radius: 5.2090406
---- !u!114 &114384753702192694
+--- !u!114 &114435356464663818
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502938923176134}
+  m_GameObject: {fileID: 1121517866311746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff257b6ad18e034e9847c0390e084ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doMove: 1
+  moveSpeed: 5
+  distanceToNodeTolerance: 0.2
+  Path: {fileID: 0}
+  target: {x: 55.19266, y: -90.86636}
+  useTriggers: 1
+--- !u!114 &114652764595538402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121517866311746}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ff257b6ad18e034e9847c0390e084ec, type: 3}
@@ -95,12 +113,12 @@ MonoBehaviour:
   Path: {fileID: 0}
   target: {x: 0, y: 0}
   useTriggers: 1
---- !u!212 &212207086861294880
+--- !u!212 &212437616678306808
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502938923176134}
+  m_GameObject: {fileID: 1121517866311746}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
