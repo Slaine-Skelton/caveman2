@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 95199243636060974}
   - component: {fileID: 114572442082491636}
   - component: {fileID: 114059595648994088}
+  - component: {fileID: 114732221591005498}
   m_Layer: 0
   m_Name: caveman
   m_TagString: Untagged
@@ -124,6 +125,18 @@ MonoBehaviour:
   body: {fileID: 0}
   direction: 0
   lastCheckpoint: {x: 0, y: 0, z: 0}
+--- !u!114 &114732221591005498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662163922298302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffe204647caf0343b596c765b2336c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceAmount: 3
 --- !u!212 &212606637232110804
 SpriteRenderer:
   m_ObjectHideFlags: 1
