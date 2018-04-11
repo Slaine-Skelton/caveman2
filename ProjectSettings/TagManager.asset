@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PathNode
   - portal
+  - match
   layers:
   - Default
   - TransparentFX
