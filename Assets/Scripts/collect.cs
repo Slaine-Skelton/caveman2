@@ -14,15 +14,18 @@ public class collect : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.tag == "meat")
-            {
-                meat++;
-                Destroy(collision.gameObject);
-            }
-        }
+        
 
 
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "meat")
+        {
+            meat++;
+            Destroy(collision.gameObject);
+        }
+    }
+
 }
