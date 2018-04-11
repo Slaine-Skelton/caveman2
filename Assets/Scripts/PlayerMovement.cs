@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 	//animation
 	private Animator myAnimator;
 
+    public int meat = 0;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
