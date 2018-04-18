@@ -22,10 +22,11 @@ GameObject:
   - component: {fileID: 212859515542578348}
   - component: {fileID: 58101301882461838}
   - component: {fileID: 114546549751594416}
+  - component: {fileID: 114264759837276666}
   - component: {fileID: 50694359929492798}
   m_Layer: 0
   m_Name: policw
-  m_TagString: Untagged
+  m_TagString: cop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +79,18 @@ CircleCollider2D:
   m_Offset: {x: -0.82876086, y: -1.450324}
   serializedVersion: 2
   m_Radius: 5.147776
+--- !u!114 &114264759837276666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072325250820854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbe00936f04c4143bc688a0b70cecee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 5
 --- !u!114 &114546549751594416
 MonoBehaviour:
   m_ObjectHideFlags: 1
