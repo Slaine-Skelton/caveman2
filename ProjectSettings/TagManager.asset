@@ -6,6 +6,9 @@ TagManager:
   tags:
   - PathNode
   - portal
+  - match
+  - civilian
+  - cop
   layers:
   - Default
   - TransparentFX

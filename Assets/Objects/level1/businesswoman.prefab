@@ -22,10 +22,11 @@ GameObject:
   - component: {fileID: 212722468935908874}
   - component: {fileID: 58328920701361900}
   - component: {fileID: 114499258587596652}
+  - component: {fileID: 114108442515563096}
   - component: {fileID: 50036021268327450}
   m_Layer: 0
   m_Name: businesswoman
-  m_TagString: Untagged
+  m_TagString: civilian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +79,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.7248819}
   serializedVersion: 2
   m_Radius: 5.2243695
+--- !u!114 &114108442515563096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844805638794018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbe00936f04c4143bc688a0b70cecee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 3
 --- !u!114 &114499258587596652
 MonoBehaviour:
   m_ObjectHideFlags: 1

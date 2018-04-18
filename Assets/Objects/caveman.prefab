@@ -26,6 +26,10 @@ GameObject:
   - component: {fileID: 114572442082491636}
   - component: {fileID: 114059595648994088}
   - component: {fileID: 114732221591005498}
+  - component: {fileID: 70589195868864532}
+  - component: {fileID: 114576467198073508}
+  - component: {fileID: 114238425506262336}
+  - component: {fileID: 114915066632423466}
   m_Layer: 0
   m_Name: caveman
   m_TagString: Untagged
@@ -40,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1662163922298302}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0.9, y: 0, z: 0}
+  m_LocalPosition: {x: 0.9, y: -86.59, z: 0}
   m_LocalScale: {x: 0.08, y: 0.08, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,6 +85,21 @@ CircleCollider2D:
   m_Offset: {x: -0.45915842, y: 0.22957921}
   serializedVersion: 2
   m_Radius: 5.1958966
+--- !u!70 &70589195868864532
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662163922298302}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -3.2268257, y: 2.5411925}
+  m_Size: {x: 1.7592118, y: 1.7592118}
+  m_Direction: 0
 --- !u!95 &95199243636060974
 Animator:
   serializedVersion: 3
@@ -110,6 +129,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 100
+--- !u!114 &114238425506262336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662163922298302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80def69f9e87364a973c6fa10940b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchCount: 0
 --- !u!114 &114572442082491636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +156,19 @@ MonoBehaviour:
   body: {fileID: 0}
   direction: 0
   lastCheckpoint: {x: 0, y: 0, z: 0}
+--- !u!114 &114576467198073508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662163922298302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149439b74c7c7be4f86d58d9531b345e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 1159981121065362, guid: 7c55f74eb7b24e24399543fd4fec53b1, type: 2}
+  bloodPool: {fileID: 1211973302557312, guid: 5c1bea4dce4266243bb681184e81ba4d, type: 2}
 --- !u!114 &114732221591005498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +181,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceAmount: 3
+--- !u!114 &114915066632423466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662163922298302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb2d6ee6dca86047853ef826f2e278e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthtext: {fileID: 0}
+  collectionText: {fileID: 0}
 --- !u!212 &212606637232110804
 SpriteRenderer:
   m_ObjectHideFlags: 1

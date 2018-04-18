@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int currentHealth = 100;
+    public int currentHealth = 10;
 
     public void Add(int amount)
     {

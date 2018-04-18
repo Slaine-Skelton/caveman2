@@ -39,7 +39,7 @@ public class FollowPath : MonoBehaviour
         }
 
         float heading = Mathf.Atan2(target.x * -1, target.y);
-        transform.rotation = Quaternion.Euler(0f, 0f, heading * Mathf.Rad2Deg);
+        transform.rotation = Quaternion.Euler(0f, 0f, (heading * Mathf.Rad2Deg) - 40);
 
     }
 
