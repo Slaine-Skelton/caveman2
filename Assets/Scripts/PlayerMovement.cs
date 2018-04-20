@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5;
 
     private Vector2 inputAmount = Vector2.zero;
-    public Rigidbody2D body;
+    private Rigidbody2D body;
 
     public float direction = 0;
     public Vector3 lastCheckpoint;
@@ -33,21 +33,27 @@ public class PlayerMovement : MonoBehaviour
 		if(inputAmount.x != 0 || inputAmount.y != 0)
 		{
 			myAnimator.SetFloat("isWalking", 1f);
+			direction = inputAmount.x;
+
+			float heading = Mathf.Atan2(inputAmount.x * -1, inputAmount.y);
+			transform.rotation = Quaternion.Euler(0f, 0f, heading * Mathf.Rad2Deg);
+
+			inputAmount *= speed;
+			//inputAmount = Vector2.ClampMagnitude(inputAmount, speed);
+
+			body.velocity = inputAmount;
+
 		}
 		else
 		{
 			myAnimator.SetFloat("isWalking", 0);
+			body.freezeRotation = true;
+			body.velocity = new Vector3(0f,0f,0f);
 		}
 
-        direction = inputAmount.x;
+        
 
-        float heading = Mathf.Atan2(inputAmount.x * -1, inputAmount.y);
-        transform.rotation = Quaternion.Euler(0f, 0f, heading * Mathf.Rad2Deg);
-
-        inputAmount *= speed;
-        //inputAmount = Vector2.ClampMagnitude(inputAmount, speed);
-
-        body.velocity = inputAmount;
+        
 
     }
 

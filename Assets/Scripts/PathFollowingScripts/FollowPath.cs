@@ -38,8 +38,13 @@ public class FollowPath : MonoBehaviour
             }
         }
 
-        float heading = Mathf.Atan2(target.x * -1, target.y);
-        transform.rotation = Quaternion.Euler(0f, 0f, (heading * Mathf.Rad2Deg) - 40);
+		float triAngleX = target.x - gameObject.transform.position.x;
+		float triAngleY = target.y - gameObject.transform.position.y;
+
+		//float heading = Mathf.Atan2(target.x * -1, target.y);
+		float heading = Mathf.Atan2(triAngleY, triAngleX);
+		transform.rotation = Quaternion.Euler(0f, 0f, (heading * Mathf.Rad2Deg ) - 90);
+		//Debug.Log("" + (heading * Mathf.Rad2Deg));
 
     }
 
