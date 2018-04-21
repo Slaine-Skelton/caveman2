@@ -5,6 +5,7 @@ using UnityEngine;
 public class CustomPath : MonoBehaviour
 {
     public Transform[] PathNodes;
+	public bool loop = true;
     private int currentNode = 0;
 
     public Vector2 GetFirstNode()
@@ -21,6 +22,10 @@ public class CustomPath : MonoBehaviour
         {
             position = PathNodes[currentNode].position;
         }
+		else if(!loop)
+		{
+			//do nothing
+		}
         else
         {
             currentNode = 0;
@@ -29,7 +34,28 @@ public class CustomPath : MonoBehaviour
         return position;
     }
 
-    private void OnDrawGizmos()
+	public Vector2 GetNextNodePosition(int targetNode)
+	{
+		Vector2 position = Vector2.zero;
+		//targetNode++;
+
+		if (targetNode < PathNodes.Length)
+		{
+			position = PathNodes[targetNode].position;
+		}
+		else if (!loop)
+		{
+			//do nothing
+		}
+		else
+		{
+			targetNode = 0;
+			position = PathNodes[targetNode].position;
+		}
+		return position;
+	}
+
+	private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 
@@ -41,10 +67,18 @@ public class CustomPath : MonoBehaviour
                 {
                     for (int i = 0; i < PathNodes.Length; i++)
                     {
-                        if (i + 1 < PathNodes.Length)
-                            Gizmos.DrawLine(PathNodes[i].position, PathNodes[i + 1].position);
-                        else
-                            Gizmos.DrawLine(PathNodes[i].position, PathNodes[0].position);
+						if (i + 1 < PathNodes.Length)
+						{
+							Gizmos.DrawLine(PathNodes[i].position, PathNodes[i + 1].position);
+						}
+						else if (!loop)
+						{
+							//do nothing
+						}
+						else
+						{
+							Gizmos.DrawLine(PathNodes[i].position, PathNodes[0].position);
+						}
                     }
                 }
             }

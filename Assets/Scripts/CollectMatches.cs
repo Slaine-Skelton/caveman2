@@ -16,9 +16,10 @@ public class CollectMatches : MonoBehaviour {
 		
 	}
 
+	
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        tag = collision.tag;
+        string tag = collision.tag;
 
         if(tag == "match")
         {
@@ -26,4 +27,5 @@ public class CollectMatches : MonoBehaviour {
             Destroy(collision.gameObject);
         }
     }
+	
 }

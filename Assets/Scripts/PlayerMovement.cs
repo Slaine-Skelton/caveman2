@@ -13,24 +13,36 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 lastCheckpoint;
 
     private Vector3 mousePosition;
+	public GameObject dead;
 
 	//animation
 	private Animator myAnimator;
 
-    void Start()
+	bool damageProtection = false;
+	Health health;
+	public GameObject UiPanel1;
+	public GameObject UiPanel2;
+
+	public bool escapePressed = false;
+
+	void Start()
     {
         body = GetComponent<Rigidbody2D>();
         lastCheckpoint = transform.position;
-
+		health = GetComponent<Health>();
 		myAnimator = GetComponent<Animator>();
-    }
+
+		UiPanel1.SetActive(true);
+		UiPanel2.SetActive(false);
+	}
 
     void Update()
     {
+
         inputAmount.x = Input.GetAxis("Horizontal");
         inputAmount.y = Input.GetAxis("Vertical");
 
-		if(inputAmount.x != 0 || inputAmount.y != 0)
+		if (inputAmount.x != 0 || inputAmount.y != 0)
 		{
 			myAnimator.SetFloat("isWalking", 1f);
 			direction = inputAmount.x;
@@ -51,16 +63,48 @@ public class PlayerMovement : MonoBehaviour
 			body.velocity = new Vector3(0f,0f,0f);
 		}
 
-        
+		
+		if (GetComponent<Health>().IsDead())
+		{
+			//destroy and instatiate
+			GameObject deadImage = Instantiate(dead);
+			deadImage.transform.position = gameObject.transform.position;
+			GetComponent<HUD>().healthtext.text = "0";
+			Destroy(gameObject);
+		}
 
-        
+		if (Input.GetKeyDown("escape") && !escapePressed)
+		{
+			Time.timeScale = 0;
+			PausedScreen();
+		}
+		
+		if (Input.GetKeyDown("escape") && escapePressed)
+		{
+			ReturnToGame();
+		}
 
-    }
+		if (Input.GetKeyUp("escape"))
+		{
+			escapePressed = !escapePressed;
+		}
+		
+	}
 
+	
+	
     void OnCollisionEnter2D(Collision2D collision)
     {
         string tag = collision.gameObject.tag;
-    }
+
+
+		if (tag == "followCar" && !damageProtection)
+		{
+			health.Subtract(-3);
+			damageProtection = true;
+			StartCoroutine(delayDamage());
+		}
+	}
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -74,6 +118,59 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = lastCheckpoint;
         }
+
+		if (tag == "health")
+		{
+			if(health.currentHealth < 10)
+			{
+				health.Add(1);
+			}
+			Destroy(collider.gameObject);
+
+			lastCheckpoint = gameObject.transform.position;
+		}
+
     }
+
+	IEnumerator delayDamage()
+	{
+		yield return new WaitForSeconds(0.5f);
+		damageProtection = false;
+	}
+
+	private void PausedScreen()
+	{
+		UiPanel1.SetActive(false);
+		UiPanel2.SetActive(true);
+		UiPanel2.transform.GetChild(0).gameObject.SetActive(false);
+		UiPanel2.transform.GetChild(1).gameObject.SetActive(false);
+		UiPanel2.transform.GetChild(2).gameObject.SetActive(false);
+		UiPanel2.transform.GetChild(3).gameObject.SetActive(false);
+		UiPanel2.transform.GetChild(5).gameObject.SetActive(true);
+		UiPanel2.transform.GetChild(6).gameObject.SetActive(true);
+		UiPanel2.transform.GetChild(7).gameObject.SetActive(true);
+	}
+
+	private void GameOverScreen()
+	{
+		UiPanel1.SetActive(false);
+		UiPanel2.SetActive(true);
+		UiPanel2.transform.GetChild(0).gameObject.SetActive(true);
+		UiPanel2.transform.GetChild(1).gameObject.SetActive(true);
+		UiPanel2.transform.GetChild(2).gameObject.SetActive(true);
+		UiPanel2.transform.GetChild(3).gameObject.SetActive(true);
+		UiPanel2.transform.GetChild(5).gameObject.SetActive(false);
+		UiPanel2.transform.GetChild(6).gameObject.SetActive(false);
+		UiPanel2.transform.GetChild(7).gameObject.SetActive(false);
+		UiPanel2.transform.GetChild(7).gameObject.SetActive(false);
+	}
+
+	public void ReturnToGame()
+	{
+		UiPanel1.SetActive(true);
+		UiPanel2.SetActive(false);
+		Time.timeScale = 1;
+	}
+
 }
 
