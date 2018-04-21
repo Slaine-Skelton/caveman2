@@ -23,7 +23,10 @@ GameObject:
   - component: {fileID: 58101301882461838}
   - component: {fileID: 114546549751594416}
   - component: {fileID: 114264759837276666}
+  - component: {fileID: 114865979503366420}
   - component: {fileID: 50694359929492798}
+  - component: {fileID: 58700488000652578}
+  - component: {fileID: 95492735749129790}
   m_Layer: 0
   m_Name: policw
   m_TagString: cop
@@ -38,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1072325250820854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8990335, y: -0.3418666, z: 0}
+  m_LocalPosition: {x: 2.85, y: 6.44, z: 0}
   m_LocalScale: {x: 0.08, y: 0.08, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,7 +54,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1072325250820854}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -76,9 +79,41 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.82876086, y: -1.450324}
+  m_Offset: {x: 0.72, y: 1.91}
   serializedVersion: 2
-  m_Radius: 5.147776
+  m_Radius: 6.959559
+--- !u!58 &58700488000652578
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072325250820854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0, y: 0}
+  serializedVersion: 2
+  m_Radius: 54.504467
+--- !u!95 &95492735749129790
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072325250820854}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c7335084d7a83e449c322d8b137eb41, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114264759837276666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,7 +142,18 @@ MonoBehaviour:
   distanceToNodeTolerance: 0.2
   Path: {fileID: 0}
   target: {x: 0, y: 0}
-  useTriggers: 1
+  useTriggers: 0
+--- !u!114 &114865979503366420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072325250820854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1a576ce16c4b347b57f868c0f4fb35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212859515542578348
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,6 +163,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -132,6 +179,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

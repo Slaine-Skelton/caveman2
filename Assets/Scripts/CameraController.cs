@@ -9,10 +9,14 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        tempPosition.x = PlayerToFollow.transform.position.x;
-        tempPosition.y = PlayerToFollow.transform.position.y;
-        tempPosition.z = transform.position.z;
+		if(PlayerToFollow != null)
+		{
+			tempPosition.x = PlayerToFollow.transform.position.x;
+			tempPosition.y = PlayerToFollow.transform.position.y;
+			tempPosition.z = transform.position.z;
 
-        transform.position = tempPosition;
+			transform.position = tempPosition;
+		}
+        
     }
 }

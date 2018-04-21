@@ -9,6 +9,10 @@ TagManager:
   - match
   - civilian
   - cop
+  - followCar
+  - carNodes
+  - outOfBounds
+  - health
   layers:
   - Default
   - TransparentFX
