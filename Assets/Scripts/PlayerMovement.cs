@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
 			deadImage.transform.position = gameObject.transform.position;
 			GetComponent<HUD>().healthtext.text = "0";
 			Destroy(gameObject);
+			GameOverScreen();
 		}
 
 		if (Input.GetKeyDown("escape") && !escapePressed)
