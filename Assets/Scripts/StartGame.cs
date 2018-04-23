@@ -19,7 +19,7 @@ public class StartGame : MonoBehaviour {
 
     public void changeLevel()
     {
-        SceneManager.LoadScene("level1");
+        SceneManager.LoadScene("cutscene1");
     }
 
 	public void QuitGame()
