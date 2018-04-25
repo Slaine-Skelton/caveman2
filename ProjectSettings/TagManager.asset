@@ -13,6 +13,8 @@ TagManager:
   - carNodes
   - outOfBounds
   - health
+  - man
+  - woman
   layers:
   - Default
   - TransparentFX

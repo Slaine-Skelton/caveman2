@@ -10,12 +10,18 @@ public class Attack : MonoBehaviour {
     private Animator myAnimator;
     public bool ishitting = false;
 
+	private AudioSource audioSource;
+	private Sounds sounds;
+
     //private CapsuleCollider2D clubCollider;
 
 	// Use this for initialization
 	void Start () {
         myAnimator = GetComponent<Animator>();
 		//clubCollider = GetComponent<CapsuleCollider2D>();
+
+		audioSource = GetComponent<AudioSource>();
+		sounds = GetComponent<Sounds>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +33,7 @@ public class Attack : MonoBehaviour {
 			//Debug.Log("hit");
 			ishitting = true;
 			myAnimator.SetTrigger("hit");
+			audioSource.PlayOneShot(sounds.audioClips[6], 0.7f);
 			gameObject.transform.localScale = new Vector3(0.09f, 0.09f);
 			StartCoroutine(delayFall());
 		}
@@ -38,7 +45,7 @@ public class Attack : MonoBehaviour {
     {
         string tag = collision.transform.tag;
 
-		if ((tag == "civilian" || tag == "cop") && ishitting)
+		if ((tag == "civilian" || tag == "man" || tag == "woman" || tag == "cop") && ishitting)
 		{
 			collision.transform.GetComponent<Health>().Subtract(-1);
 
@@ -47,6 +54,14 @@ public class Attack : MonoBehaviour {
 
 			if (collision.transform.GetComponent<Health>().IsDead())
 			{
+				if(tag == "cop" || tag == "man")
+				{
+					audioSource.PlayOneShot(sounds.audioClips[3], 0.7f);
+				}
+				else if (tag == "woman")
+				{
+					audioSource.PlayOneShot(sounds.audioClips[2], 0.4f);
+				}
 				//Debug.Log("dead");
 				Destroy(collision.gameObject);
 				GameObject bloodDeadPool = Instantiate(bloodPool);

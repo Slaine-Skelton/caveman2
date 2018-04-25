@@ -16,21 +16,31 @@ public class IntroTimer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("introPart2"))
+		if (Nav.currentScene == 1 && myAnimator.GetCurrentAnimatorStateInfo(0).IsName("introPart2"))
+		{
+			isPlaying = true;
+			Debug.Log("is playing");
+		}
+		else if (Nav.currentScene == 3 && myAnimator.GetCurrentAnimatorStateInfo(0).IsName("cutScene2"))
 		{
 			isPlaying = true;
 			Debug.Log("is playing");
 		}
 
-		if (isPlaying && !myAnimator.GetCurrentAnimatorStateInfo(0).IsName("introPart2"))
+		if (Nav.currentScene == 1 && isPlaying && !myAnimator.GetCurrentAnimatorStateInfo(0).IsName("introPart2"))
 		{
 			Debug.Log("Load level");
-			LoadLevel1();
+			LoadNextLevel("level1");
+		}
+		else if (Nav.currentScene == 3 && isPlaying && !myAnimator.GetCurrentAnimatorStateInfo(0).IsName("cutScene2"))
+		{
+			Debug.Log("Load level");
+			LoadNextLevel("level2");
 		}
 	}
 
-	public void LoadLevel1()
+	public void LoadNextLevel(string str)
 	{
-		SceneManager.LoadScene("level1");
+		SceneManager.LoadScene(str);
 	}
 }

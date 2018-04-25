@@ -6,9 +6,13 @@ public class CollectMatches : MonoBehaviour {
 
     public int matchCount = 0;
 
+	private AudioSource audioSource;
+	private Sounds sounds;
+
 	// Use this for initialization
 	void Start () {
-		
+		audioSource = GetComponent<AudioSource>();
+		sounds = GetComponent<Sounds>();
 	}
 	
 	// Update is called once per frame
@@ -24,7 +28,8 @@ public class CollectMatches : MonoBehaviour {
         if(tag == "match")
         {
             matchCount++;
-            Destroy(collision.gameObject);
+			audioSource.PlayOneShot(sounds.audioClips[0], 0.7f);
+			Destroy(collision.gameObject);
         }
     }
 	

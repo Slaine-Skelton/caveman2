@@ -25,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
 
 	public bool escapePressed = false;
 
+	private AudioSource audioSource;
+	private Sounds sounds;
+
 	void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -34,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
 
 		UiPanel1.SetActive(true);
 		UiPanel2.SetActive(false);
+
+		audioSource = GetComponent<AudioSource>();
+		sounds = GetComponent<Sounds>();
 	}
 
     void Update()
@@ -68,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			//destroy and instatiate
 			GameObject deadImage = Instantiate(dead);
+			audioSource.PlayOneShot(sounds.audioClips[3], 0.7f);
 			deadImage.transform.position = gameObject.transform.position;
 			GetComponent<HUD>().healthtext.text = "0";
 			Destroy(gameObject);
@@ -102,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
 		if (tag == "followCar" && !damageProtection)
 		{
 			health.Subtract(-3);
+			audioSource.PlayOneShot(sounds.audioClips[4], 0.7f);
 			damageProtection = true;
 			StartCoroutine(delayDamage());
 		}
@@ -126,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				health.Add(1);
 			}
+			audioSource.PlayOneShot(sounds.audioClips[0], 0.7f);
 			Destroy(collider.gameObject);
 
 			lastCheckpoint = gameObject.transform.position;
@@ -163,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
 		UiPanel2.transform.GetChild(5).gameObject.SetActive(false);
 		UiPanel2.transform.GetChild(6).gameObject.SetActive(false);
 		UiPanel2.transform.GetChild(7).gameObject.SetActive(false);
-		UiPanel2.transform.GetChild(7).gameObject.SetActive(false);
+		UiPanel2.transform.GetChild(8).gameObject.SetActive(false);
 	}
 
 	public void ReturnToGame()

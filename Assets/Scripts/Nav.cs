@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Nav : MonoBehaviour {
 
-	int currentScene;
+	static public int currentScene;
 	PlayerMovement player;
 
 	// Use this for initialization

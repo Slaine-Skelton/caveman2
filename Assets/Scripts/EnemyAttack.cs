@@ -9,11 +9,17 @@ public class EnemyAttack : MonoBehaviour {
 	Animator myAnimator;
 	bool ishitting = false;
 
+	private AudioSource audioSource;
+	private Sounds sounds;
+
 	// Use this for initialization
 	void Start () {
 		myAnimator = GetComponent<Animator>(); 
 
 		player = GameObject.FindGameObjectWithTag("Player");
+
+		audioSource = player.GetComponent<AudioSource>();
+		sounds = player.GetComponent<Sounds>();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +38,7 @@ public class EnemyAttack : MonoBehaviour {
 		{
 			//gameObject.GetComponent<FollowPath>().doMove = false;
 			Destroy(gameObject.GetComponent<FollowPath>());
+			audioSource.PlayOneShot(sounds.audioClips[1], 0.4f);
 			attack = true;
 
 		}
@@ -56,6 +63,7 @@ public class EnemyAttack : MonoBehaviour {
 
 		if(distance < 6.2f && !ishitting)
 		{
+			audioSource.PlayOneShot(sounds.audioClips[5], 0.7f);
 			player.GetComponent<Health>().Subtract(-1);
 			ishitting = true;
 			//Debug.Log("hitting player");
